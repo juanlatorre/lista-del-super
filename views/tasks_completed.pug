@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  .menu
+    h2 Menu
+    ul.nav.nav-pills
+      li
+        a(href='/tasks') Lista
+      li.active
+        a(href="/tasks/completed") Completado
+  h1= title
+
+  .list
+    if (tasks.length === 0)
+      | No hay elementos.
+    each task, index in tasks
+      .item
+        div.num
+          span=index+1
+            |.&nbsp;
+        div.name.completed-task
+          span.name=task.name + ' (Completado a las: ' + moment(task.completeTime).format("LT") + ')'
