@@ -1,6 +1,6 @@
 {
   "name": "lista-del-super",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Lista del supermercado para uso personal",
   "main": "app.js",
   "private": true,
