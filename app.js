@@ -19,7 +19,7 @@ var tasks = require('./routes/tasks')
 
 var app = express()
 
-app.use( function(req,res,next) {
+app.use(function(req,res,next) {
   req.db = {}
   req.db.tasks = db.collection('tasks')
   next()
