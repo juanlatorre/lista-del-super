@@ -63,7 +63,7 @@ exports.markCompleted = function(req, res, next) {
 exports.del = function(req, res, next) {
   req.db.tasks.removeById(req.task._id, function(error, count) {
     if (error) return next(error)
-    if (count !==1) return next(new Error('Something went wrong.'))
+    //if (count !==1) return next(new Error('Something went wrong.'))
     console.info('Deleted task %s with id=%s completed.', req.task.name, req.task._id)
     res.status(204).send()
   })
