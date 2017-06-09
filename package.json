@@ -4,6 +4,7 @@
   "description": "Lista del supermercado para uso personal",
   "main": "app.js",
   "private": true,
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "test"
