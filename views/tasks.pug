@@ -27,8 +27,7 @@ block content
     each task, index in tasks
       .item
         div.delete
-          a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf)
-            i(class='fa fa-trash fa-2x' aria-hidden='true')
+          a(class='btn btn-danger btn-xs task-delete', data-task-id=task._id.toString(), data-csrf=locals._csrf) borrar
         div.num
           span=index+1
             |.&nbsp;
