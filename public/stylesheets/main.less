@@ -10,16 +10,22 @@
 body {
   background-color: white;
   color: #8e44ad;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
   font-size:14px;
 }
 
+.nav-pills {
+  padding-top: 20px;
+  display: inline-block;
+  a {
+    color: #668de5;
+  }
+}
+
 .item {
-  height: 44px;
-  width: 100%;
-  clear: both;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .name {
     width: 300px;
   }
@@ -27,7 +33,7 @@ body {
     width: 100px;
   }
   .delete {
-    width: 100px
+    width: 100px;
   }
   div {
     float:left;

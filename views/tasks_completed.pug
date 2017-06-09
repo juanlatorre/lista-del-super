@@ -2,14 +2,14 @@ extends layout
 
 block content
 
-  .menu
+  .menu.text-center
     ul.nav.nav-pills
       li
         a(href='/tasks') Lista
       li.active
         a(href="/tasks/completed") Completado
 
-  .list
+  .list.text-center
     if (tasks.length === 0)
       | No hay nada completado.
     each task, index in tasks
