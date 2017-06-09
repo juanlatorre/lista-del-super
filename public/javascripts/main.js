@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
   $alert.on('success', function(event, data) {
     $alert.html(data);
-    $alert.addClass('alert-info');
+    $alert.addClass('alert-info text-center');
     $alert.show();
   })
   $('.task-delete').click(function(event) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
       },
       success: function(response) {
         $target.parent().parent().remove();
-        $alert.trigger('success', 'Task was removed.');
+        $alert.trigger('success', '¡Eliminado!');
       },
       error: function(error) {
         $alert.trigger('error', error);

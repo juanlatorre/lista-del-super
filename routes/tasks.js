@@ -1,8 +1,3 @@
-
-/*
- * GET users listing.
- */
-
 exports.list = function(req, res, next){
   req.db.tasks.find({completed: false}).toArray(function(error, tasks){
     if (error) return next(error)
