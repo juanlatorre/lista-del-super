@@ -2,7 +2,7 @@
 	$errores = false;
 
 	// Conectar a base de datos
-	$db = mysqli_connect('localhost', 'terralia_super', 'khl0695', 'terralia_lista_supermercado');
+	$db = mysqli_connect('localhost', 'root', '', 'lista-del-super');
 
 	if (isset($_POST['submit'])) {
 		$tarea = $_POST['tarea'];
