@@ -2,7 +2,7 @@
 	$errores = false;
 
 	// Conectar a base de datos
-	$db = mysqli_connect('localhost', 'root', '', 'lista-del-super');
+	$db = mysqli_connect('localhost', 'terralia_super', 'khl0695', 'terralia_lista_supermercado');
 
 	if (isset($_POST['submit'])) {
 		$tarea = $_POST['tarea'];
@@ -52,12 +52,16 @@
 				<h1 class="text-center">Lista del Supermercado</h1>
 
 				<div class="row mt-5">
-					<div class="col-sm-10 offset-sm-1 text-center">
+					<div class="col-sm text-center">
 						<form method="post" class="form-inline justify-content-center">
-							<div class="form-group mx-sm-3">
-								<input name="tarea" type="text" class="form-control" id="todo-input" placeholder="Escribir aquí..." autofocus>
+							<div class="input-group form-group mx-sm-3">
+								<input name="tarea" type="text" class="form-control" id="todo-input" placeholder="Agregar..." aria-label="Agregar..." autofocus>
+								<span class="input-group-btn">
+									<button name="submit" type="submit" class="btn btn-dark">
+										<i class="fa fa-plus" aria-hidden="true"></i>
+									</button>
+								</span>
 							</div>
-							<button name="submit" type="submit" class="btn btn-dark"><i class="fa fa-plus" aria-hidden="true"></i></button>
 						</form>
 					</div>
 				</div>
