@@ -3,11 +3,7 @@
   import { db } from "./firebase";
   import { collectionData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
-
-  // Form Text
   let text = "";
-
-  // Query requires an index, see screenshot below
   const query = db.collection("todos");
 
   const todos = collectionData(query, "id").pipe(startWith([]));
