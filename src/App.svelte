@@ -54,7 +54,9 @@
 </style>
 
 <div class="container">
-  <h1 class="title is-size-1">Lista del Supermercado</h1>
+  <h1 class="title is-size-1-desktop is-size-3-touch">
+    Lista del Supermercado
+  </h1>
 
   <div class="field has-addons">
     <div class="control">
