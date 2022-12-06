@@ -1,6 +1,6 @@
 <script>
-  import TodoItem from "./TodoItem.svelte";
-  import { db } from "./firebase";
+  import TodoItem from "./lib/TodoItem.svelte";
+  import { db } from "./lib/firebase";
   import { collectionData } from "rxfire/firestore";
   import { startWith } from "rxjs/operators";
   let text = "";
@@ -15,18 +15,40 @@
 
   function updateStatus(event) {
     const { id, newStatus } = event.detail;
-    db.collection("todos")
-      .doc(id)
-      .update({ complete: newStatus });
+    db.collection("todos").doc(id).update({ complete: newStatus });
   }
 
   function removeItem(event) {
     const { id } = event.detail;
-    db.collection("todos")
-      .doc(id)
-      .delete();
+    db.collection("todos").doc(id).delete();
   }
 </script>
+
+<div class="container">
+  <h1 class="title is-size-1-desktop is-size-3-touch">
+    Lista del Supermercado
+  </h1>
+
+  <div class="field has-addons">
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        placeholder="Agregar..."
+        bind:value={text}
+      />
+    </div>
+    <div class="control">
+      <button class="button is-dark" on:click={add}>➕</button>
+    </div>
+  </div>
+
+  <ul>
+    {#each $todos as todo}
+      <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
+    {/each}
+  </ul>
+</div>
 
 <style>
   input {
@@ -48,28 +70,3 @@
     margin-top: 1em;
   }
 </style>
-
-<div class="container">
-  <h1 class="title is-size-1-desktop is-size-3-touch">
-    Lista del Supermercado
-  </h1>
-
-  <div class="field has-addons">
-    <div class="control">
-      <input
-        class="input"
-        type="text"
-        placeholder="Agregar..."
-        bind:value={text} />
-    </div>
-    <div class="control">
-      <button class="button is-dark" on:click={add}>➕</button>
-    </div>
-  </div>
-
-  <ul>
-    {#each $todos as todo}
-      <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
-    {/each}
-  </ul>
-</div>

@@ -12,10 +12,27 @@
     dispatch("toggle", { id, newStatus });
   }
 
-  export let id; // Document ID
+  export let id;
   export let text;
   export let complete;
 </script>
+
+<li>
+  {#if complete}
+    <span class="is-complete">{text}</span>
+  {:else}
+    <span>{text}</span>
+  {/if}
+
+  <div class="botones">
+    {#if complete}
+      <button class="button" on:click={toggleStatus}>❌</button>
+    {:else}
+      <button class="button" on:click={toggleStatus}>✔️</button>
+    {/if}
+    <button class="button" on:click={remove}>🗑️</button>
+  </div>
+</li>
 
 <style>
   .is-complete {
@@ -35,20 +52,3 @@
     justify-content: space-between;
   }
 </style>
-
-<li>
-  {#if complete}
-    <span class="is-complete">{text}</span>
-  {:else}
-    <span>{text}</span>
-  {/if}
-
-  <div class="botones">
-    {#if complete}
-      <button class="button" on:click={toggleStatus}>❌</button>
-    {:else}
-      <button class="button" on:click={toggleStatus}>✔️</button>
-    {/if}
-    <button class="button" on:click={remove}>🗑️</button>
-  </div>
-</li>
